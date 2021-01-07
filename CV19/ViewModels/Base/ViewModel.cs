@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CV19.ViewModels.Base
 {
-    internal abstract class ViewModel : INotifyPropertyChanged
+    internal abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,12 +29,25 @@ namespace CV19.ViewModels.Base
         /// <param name="value">новое значение, который хотим установить</param>
         /// <param name="propertyName">Этот параметр самостоятельно определит, какой метод вызвал данную процедуру</param>
         /// <returns></returns>
-        protected virtual bool Set<T>(ref T feild,T value, [CallerMemberName] string propertyName)
+        protected virtual bool Set<T>(ref T feild,T value, [CallerMemberName] string propertyName = null)
         {
             if (Equals(feild, value)) return false;
             feild = value;
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        private bool _Disposed;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing || _Disposed) return;
+            _Disposed = true;
+            // Освобождение управляемых ресурсов
         }
     }
 }
