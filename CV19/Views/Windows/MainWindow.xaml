@@ -24,7 +24,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="{Binding Status}" />
+                <TextBlock Text="1234" />
             </StatusBarItem>
             <ProgressBar
                 Width="120"
@@ -56,13 +56,6 @@
                         Fill="Red"
                         Stroke="Blue"
                         StrokeThickness="3" />
-                    <GridSplitter
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Grid.Column="0"
-                        Width="4"
-                        HorizontalAlignment="Right" />
-
                 </Grid>
             </TabItem>
             <TabItem Header="Tab 2" />
