@@ -24,7 +24,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="1234" />
+                <TextBlock Text="{Binding Path=Status}" />
             </StatusBarItem>
             <ProgressBar
                 Width="120"
