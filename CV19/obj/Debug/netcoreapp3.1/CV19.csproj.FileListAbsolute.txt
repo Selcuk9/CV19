@@ -17,3 +17,4 @@ C:\Users\Selcuk\source\repos\CV19\CV19\obj\Debug\netcoreapp3.1\CV19.pdb
 C:\Users\Selcuk\source\repos\CV19\CV19\obj\Debug\netcoreapp3.1\CV19.genruntimeconfig.cache
 C:\Users\Selcuk\source\repos\CV19\CV19\obj\Debug\netcoreapp3.1\Views\Windows\MainWindow.g.cs
 C:\Users\Selcuk\source\repos\CV19\CV19\obj\Debug\netcoreapp3.1\Views\Windows\MainWindow.baml
+C:\Users\Selcuk\source\repos\CV19\CV19\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
