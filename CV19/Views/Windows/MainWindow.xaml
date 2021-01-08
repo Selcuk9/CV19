@@ -13,7 +13,53 @@
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <TextBox Text="{Binding Path=Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" />
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="1234" />
+            </StatusBarItem>
+            <ProgressBar
+                Width="120"
+                Height="14"
+                Value="50" />
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Tab 1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70*" />
+                        <RowDefinition Height="319*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="53*" />
+                        <ColumnDefinition Width="344*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Fill="Blue"
+                        RadiusX="5"
+                        RadiusY="7"
+                        Stroke="Red"
+                        StrokeThickness="3" />
+                    <Ellipse
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Fill="Red"
+                        Stroke="Blue"
+                        StrokeThickness="3" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tab 2" />
+        </TabControl>
+
+    </DockPanel>
 </Window>
