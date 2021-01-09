@@ -1,9 +1,12 @@
-﻿using CV19.ViewModels.Base;
+﻿using CV19.Infrastructures.Commands;
+using CV19.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CV19.ViewModels
 {
@@ -43,6 +46,29 @@ namespace CV19.ViewModels
             get => _status;
             set => Set<string>(ref _status, value);
 
+        }
+
+        #region Команды
+        #region OnCloseApplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+
+        private bool CanCloseApplicationCommandExecute(object p) => true;
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+
+        } 
+        #endregion
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            #region Команды
+
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted,CanCloseApplicationCommandExecute);
+
+            #endregion
         }
 
     }

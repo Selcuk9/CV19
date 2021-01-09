@@ -16,7 +16,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Header="Exit" />
+                <MenuItem Header="Exit" Command="{Binding Path=CloseApplicationCommand}" />
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="About" />
