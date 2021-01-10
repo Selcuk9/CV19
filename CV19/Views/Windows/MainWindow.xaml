@@ -2,28 +2,35 @@
     x:Class="CV19.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cmd="clr-namespace:CV19.Infrastructures.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CV19"
-    xmlns:cmd="clr-namespace:CV19.Infrastructures.Commands"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CV19.ViewModels"
     Title="{Binding Path=Title}"
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding Path=CloseApplicationCommand}"></KeyBinding>
+    </Window.InputBindings>
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CmdClose"/>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Header="Exit" Command="{Binding Path=CloseApplicationCommand}" />
+                <MenuItem Command="{Binding Path=CloseApplicationCommand}" Header="Exit" />
             </MenuItem>
             <MenuItem Header="Exit">
                 <MenuItem.Command>
-                    <cmd:CloseApplicationCommand/>
+                    <cmd:CloseApplicationCommand />
                 </MenuItem.Command>
             </MenuItem>
+            <MenuItem Header="Exit" Command="{StaticResource CmdClose}"/>
             <MenuItem Header="Help">
                 <MenuItem Header="About" />
             </MenuItem>
@@ -61,7 +68,15 @@
                         Grid.Column="1"
                         Fill="Red"
                         Stroke="Blue"
-                        StrokeThickness="3" />
+                        StrokeThickness="3">
+                        <Ellipse.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick">
+                                <MouseBinding.Command>
+                                    <cmd:CloseApplicationCommand/>
+                                </MouseBinding.Command>
+                            </MouseBinding>
+                        </Ellipse.InputBindings>
+                    </Ellipse>
                 </Grid>
             </TabItem>
             <TabItem Header="Tab 2" />
