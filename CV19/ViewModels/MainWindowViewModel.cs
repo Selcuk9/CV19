@@ -57,7 +57,7 @@ namespace CV19.ViewModels
         {
             Application.Current.Shutdown();
 
-        } 
+        }   
         #endregion
 
         #endregion
